@@ -121,7 +121,7 @@ class ButtonLoginManually extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => SecondRoute()),
+            MaterialPageRoute(builder: (context) => LoginByManuallyScreen()),
           );
           timeDilation = 2.0;
         },
@@ -130,8 +130,8 @@ class ButtonLoginManually extends StatelessWidget {
   }
 }
 
-class SecondRoute extends StatelessWidget {
-  const SecondRoute({Key? key}) : super(key: key);
+class LoginByManuallyScreen extends StatelessWidget {
+  const LoginByManuallyScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
