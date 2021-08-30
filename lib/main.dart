@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginScreen(title: 'Flutter Scaner'),
+      home: LoginScreen(title: 'Flutter Scanner'),
     );
   }
 }
@@ -82,7 +82,7 @@ class ButtonLoginQR extends StatelessWidget {
           'LOGIN WITH QR',
           style: TextStyle(
             fontSize: 18,
-            fontFamily: 'Button',
+            fontFamily: 'Semibold',
             color: Colors.black,
           ),
         ),
@@ -113,7 +113,7 @@ class ButtonLoginManually extends StatelessWidget {
           'LOGIN WITH MANUALLY',
           style: TextStyle(
             fontSize: 18,
-            fontFamily: 'Button',
+            fontFamily: 'Semibold',
             color: Colors.black,
           ),
         ),
@@ -159,7 +159,14 @@ class LoginByManuallyScreen extends StatelessWidget {
                       ),
                     ),
                     child: Text('Login'),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ScannerScreen()),
+                      );
+                      timeDilation = 2.0;
+                    },
                   ),
                 ],
               ),
@@ -211,6 +218,137 @@ class Loginpassword extends StatelessWidget {
           ),
         ),
         obscureText: true,
+      ),
+    );
+  }
+}
+
+class ScannerScreen extends StatelessWidget {
+  const ScannerScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Manual login"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'UNENDING 22 - CHECK TICKET',
+              style: TextStyle(
+                fontFamily: 'Light',
+                fontSize: 12,
+                color: Colors.black,
+              ),
+            ),
+            SizedBox(height: 15),
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  BlockScaned(),
+                  SizedBox(width: 45),
+                  BlockSold(),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class BlockScaned extends StatelessWidget {
+  const BlockScaned({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Scanned',
+            style: TextStyle(
+              fontSize: 14,
+              fontFamily: 'Semibold',
+            ),
+          ),
+          SizedBox(height: 3),
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              minWidth: 112,
+              minHeight: 52,
+            ),
+            child: Card(
+              color: Colors.black,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Center(
+                child: Text(
+                  '1251',
+                  style: TextStyle(
+                    fontSize: 26,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class BlockSold extends StatelessWidget {
+  const BlockSold({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Sold',
+            style: TextStyle(
+              fontSize: 14,
+              fontFamily: 'Semibold',
+            ),
+          ),
+          SizedBox(height: 3),
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              minWidth: 112,
+              minHeight: 52,
+            ),
+            child: Card(
+              color: Colors.black,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Center(
+                child: Text(
+                  '1357',
+                  style: TextStyle(
+                    fontSize: 26,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
