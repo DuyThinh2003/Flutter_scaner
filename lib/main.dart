@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
@@ -230,7 +233,7 @@ class ScannerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Manual login"),
+        title: Text("Scanner"),
       ),
       body: Center(
         child: Column(
@@ -245,18 +248,31 @@ class ScannerScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 15),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  BlockScaned(),
-                  SizedBox(width: 45),
-                  BlockSold(),
-                ],
-              ),
-            ),
+            BlockCounter(),
+            SizedBox(height: 30),
+            ScannerButton(),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class BlockCounter extends StatelessWidget {
+  const BlockCounter({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          BlockScaned(),
+          SizedBox(width: 45),
+          BlockSold(),
+        ],
       ),
     );
   }
@@ -280,7 +296,7 @@ class BlockScaned extends StatelessWidget {
               fontFamily: 'Semibold',
             ),
           ),
-          SizedBox(height: 3),
+          SizedBox(height: 2),
           ConstrainedBox(
             constraints: BoxConstraints(
               minWidth: 112,
@@ -326,7 +342,7 @@ class BlockSold extends StatelessWidget {
               fontFamily: 'Semibold',
             ),
           ),
-          SizedBox(height: 3),
+          SizedBox(height: 2),
           ConstrainedBox(
             constraints: BoxConstraints(
               minWidth: 112,
@@ -349,6 +365,34 @@ class BlockSold extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ScannerButton extends StatelessWidget {
+  const ScannerButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 210,
+      width: 210,
+      child: ClipOval(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+              onPressed: () {},
+              child: Image.asset('assets/images/QR_Button.png'),
+              style: TextButton.styleFrom(
+                shadowColor: Colors.white,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
