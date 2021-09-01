@@ -24,7 +24,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -47,6 +46,7 @@ flutter:
   assets:
     - assets/images/title_app.png
     - assets/images/QR_Button.png
+    - assets/images/login_title.png
 
   fonts:
     - family: Semibold
@@ -55,7 +55,15 @@ flutter:
     - family: Light
       fonts:
         - asset: assets/fonts/Montserrat-Light.otf
-
+    - family: Normal
+      fonts:
+        - asset: assets/fonts/Montserrat-Regular.otf
+    - family: Black
+      fonts:
+        - asset: assets/fonts/Montserrat-Black.otf
+    - family: Bold
+      fonts:
+        - asset: assets/fonts/Montserrat-Bold.otf
 
   # To add assets to your application, add an assets section, like this:
   # assets:

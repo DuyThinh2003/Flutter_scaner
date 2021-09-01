@@ -138,41 +138,70 @@ class LoginByManuallyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Manual login"),
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.white,
+      //   shadowColor: Colors.white,
+      //   title: Text("Manual login"),
+      // ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ConstrainedBox(
-              constraints: BoxConstraints(
-                minWidth: 50.0,
-              ),
-              child: Column(
+            SizedBox(height: 90),
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  LoginUsername(),
-                  Loginpassword(),
-                  SizedBox(height: 30),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(2.0)),
-                      ),
-                    ),
-                    child: Text('Login'),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ScannerScreen()),
-                      );
-                      timeDilation = 2.0;
-                    },
-                  ),
+                  Image.asset('assets/images/login_title.png'),
                 ],
               ),
             ),
+            SizedBox(height: 50),
+            Container(
+              width: 300,
+              child: Row(
+                children: [
+                  Text(
+                    'Login',
+                    style: TextStyle(
+                      fontSize: 27,
+                      fontFamily: 'Bold',
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            Container(
+              width: 300,
+              child: Column(
+                children: [
+                  LoginUsername(),
+                  SizedBox(height: 10),
+                  LoginPassword(),
+                  SizedBox(height: 20),
+                  Row(
+                    children: [
+                      TextButton(
+                        child: Text('Forgot password'),
+                        onPressed: () {},
+                      ),
+                      Spacer(),
+                      TextButton(
+                        child: Text('Login'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ScannerScreen()),
+                          );
+                          timeDilation = 2.0;
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
@@ -188,13 +217,19 @@ class LoginUsername extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
-      child: TextFormField(
-        decoration: const InputDecoration(
-          border: UnderlineInputBorder(),
-          hintText: 'Enter your username',
+      width: 270,
+      child: TextField(
+        cursorHeight: 18,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+          labelText: 'Username',
+          labelStyle: TextStyle(
+            fontSize: 16,
+            // fontFamily: "Normal",
+          ),
+          hintText: 'Enter your usermane',
           hintStyle: TextStyle(
-            fontSize: 14,
+            fontSize: 16,
           ),
         ),
       ),
@@ -202,23 +237,28 @@ class LoginUsername extends StatelessWidget {
   }
 }
 
-class Loginpassword extends StatelessWidget {
-  const Loginpassword({
+class LoginPassword extends StatelessWidget {
+  const LoginPassword({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
-      child: TextFormField(
+      width: 270,
+      child: TextField(
+        cursorHeight: 18,
         decoration: const InputDecoration(
-          border: UnderlineInputBorder(),
-          hintText: 'Enter your password',
-          hintStyle: TextStyle(
-            fontSize: 14,
-          ),
-        ),
+            border: OutlineInputBorder(),
+            labelText: 'Password',
+            labelStyle: TextStyle(
+              fontSize: 16,
+              // fontFamily: "Normal",
+            ),
+            hintText: 'Enter your password',
+            hintStyle: TextStyle(
+              fontSize: 16,
+            )),
         obscureText: true,
       ),
     );
