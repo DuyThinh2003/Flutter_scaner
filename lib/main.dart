@@ -157,51 +157,67 @@ class LoginByManuallyScreen extends StatelessWidget {
             ),
             SizedBox(height: 50),
             Container(
-              width: 300,
-              child: Row(
-                children: [
-                  Text(
-                    'Login',
-                    style: TextStyle(
-                      fontSize: 27,
-                      fontFamily: 'Bold',
+              height: 300,
+              alignment: Alignment.center,
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  side: BorderSide.none,
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 300,
+                      child: Text(
+                        'Login',
+                        style: TextStyle(
+                          fontSize: 27,
+                          fontFamily: 'Bold',
+                        ),
+                      ),
                     ),
-                  )
-                ],
+                    SizedBox(height: 15),
+                    Container(
+                      width: 400,
+                      child: Column(
+                        children: [
+                          LoginUsername(),
+                          SizedBox(height: 10),
+                          LoginPassword(),
+                          SizedBox(height: 20),
+                          Container(
+                            width: 300,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                TextButton(
+                                  child: Text('Forgot password'),
+                                  onPressed: () {},
+                                ),
+                                Spacer(),
+                                TextButton(
+                                  child: Text('Login'),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              ScannerScreen()),
+                                    );
+                                    timeDilation = 2.0;
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-            SizedBox(height: 20),
-            Container(
-              width: 300,
-              child: Column(
-                children: [
-                  LoginUsername(),
-                  SizedBox(height: 10),
-                  LoginPassword(),
-                  SizedBox(height: 20),
-                  Row(
-                    children: [
-                      TextButton(
-                        child: Text('Forgot password'),
-                        onPressed: () {},
-                      ),
-                      Spacer(),
-                      TextButton(
-                        child: Text('Login'),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ScannerScreen()),
-                          );
-                          timeDilation = 2.0;
-                        },
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            )
           ],
         ),
       ),
