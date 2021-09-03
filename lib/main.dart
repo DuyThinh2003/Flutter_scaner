@@ -281,7 +281,7 @@ class LoginByManuallyScreen extends StatelessWidget {
                                 style: ElevatedButton.styleFrom(
                                   primary: Colors.blue[400],
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(7.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                 ),
                               ),
