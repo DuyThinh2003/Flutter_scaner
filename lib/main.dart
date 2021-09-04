@@ -146,154 +146,147 @@ class LoginByManuallyScreen extends StatelessWidget {
       // ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset('assets/images/login_title.png'),
             SizedBox(height: 50),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, 5.5), // changes position of shadow
+                  ),
+                ],
+              ),
+              height: 245,
+              width: 320,
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 250,
+                    child: Text(
+                      'SIGN IN',
+                      style: TextStyle(
+                        fontSize: 24,
+                        color: Colors.black,
+                        fontFamily: 'Bold',
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  LoginUsername(),
+                  SizedBox(height: 10),
+                  LoginPassword(),
+                  SizedBox(height: 25),
+                  Container(
+                    alignment: Alignment.center,
+                    width: 250,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                          height: 35,
+                          width: 75,
+                          child: ElevatedButton(
+                            child: Text(
+                              'LOGIN',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontFamily: 'Bold',
+                              ),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.blue,
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ScannerScreen(),
+                                ),
+                              );
+                              timeDilation = 2.0;
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            Text(
+              '- OR -',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+                fontFamily: 'Bold',
+              ),
+            ),
+            SizedBox(height: 10),
+            Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(15),
+                  topRight: Radius.circular(15),
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, 5), // changes position of shadow
+                  ),
+                ],
+              ),
+              height: 52,
+              width: 320,
+              child: TextButton(
+                onPressed: () {},
+                child: Container(
+                  child: Text(
+                    'LOGIN WITH QR',
+                    style: TextStyle(
+                      color: Colors.black,
+                      wordSpacing: 1,
+                      letterSpacing: 2,
+                      fontSize: 21,
+                      fontFamily: 'Semibold',
+                    ),
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/images/login_title.png'),
+                  Text('MFS Media & Entertainment'),
                 ],
               ),
-            ),
-            SizedBox(height: 50),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                        bottomLeft: Radius.circular(20),
-                        bottomRight: Radius.circular(20)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: Offset(0, 6), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  height: 350,
-                  width: 370,
-                  alignment: Alignment.center,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 300,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(height: 10),
-                            Text(
-                              'SIGN IN',
-                              style: TextStyle(
-                                fontSize: 27,
-                                color: Colors.black,
-                                fontFamily: 'Bold',
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Container(
-                        width: 400,
-                        child: Column(
-                          children: [
-                            LoginUsername(),
-                            SizedBox(height: 10),
-                            LoginPassword(),
-                            SizedBox(height: 30),
-                            Container(
-                              alignment: Alignment.center,
-                              width: 300,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  TextButton(
-                                    child: Text('Forgot password?'),
-                                    onPressed: () {},
-                                  ),
-                                  Spacer(),
-                                  Container(
-                                    height: 35,
-                                    width: 120,
-                                    child: (ElevatedButton(
-                                      child: Text(
-                                        'LOGIN',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18,
-                                          fontFamily: 'Bold',
-                                        ),
-                                      ),
-                                      style: ElevatedButton.styleFrom(
-                                        primary: Colors.blue[400],
-                                        shape: RoundedRectangleBorder(
-                                          side: BorderSide.none,
-                                          borderRadius:
-                                              BorderRadius.circular(50.0),
-                                        ),
-                                      ),
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  ScannerScreen()),
-                                        );
-                                        timeDilation = 2.0;
-                                      },
-                                    )),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: 15),
-                            Text(
-                              '- OR -',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontFamily: 'Bold',
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            Container(
-                              height: 40,
-                              width: 270,
-                              child: ElevatedButton(
-                                onPressed: () {},
-                                child: Text(
-                                  'LOGIN WITH QR',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    wordSpacing: 1,
-                                    letterSpacing: 2,
-                                    fontSize: 18,
-                                    fontFamily: 'Semibold',
-                                  ),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.blue[400],
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            )
           ],
         ),
       ),
@@ -309,7 +302,7 @@ class LoginUsername extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 270,
+      width: 250,
       child: TextField(
         cursorHeight: 18,
         decoration: InputDecoration(
@@ -317,7 +310,7 @@ class LoginUsername extends StatelessWidget {
           border: UnderlineInputBorder(),
           labelText: 'Username',
           labelStyle: TextStyle(
-            fontSize: 16,
+            fontSize: 14,
             // fontFamily: "Normal",
           ),
           hintText: 'Enter your usermane',
@@ -338,7 +331,7 @@ class LoginPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 270,
+      width: 250,
       child: TextField(
         cursorHeight: 18,
         decoration: const InputDecoration(
@@ -346,7 +339,7 @@ class LoginPassword extends StatelessWidget {
             border: UnderlineInputBorder(),
             labelText: 'Password',
             labelStyle: TextStyle(
-              fontSize: 16,
+              fontSize: 14,
               // fontFamily: "Normal",
             ),
             hintText: 'Enter your password',
